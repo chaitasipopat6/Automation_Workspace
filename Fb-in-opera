@@ -1,0 +1,20 @@
+package webdriveprogram;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.opera.*;
+
+public class fbinopera 
+{
+	
+ public static void main(String[] args) throws InterruptedException
+ {
+System.setProperty("webdriver.opera.driver", "F:\\software\\operadriver_win64\\operadriver.exe");
+
+WebDriver driver = new OperaDriver();
+
+driver.get("https://www.facebook.com");
+
+Thread.sleep(10000);
+driver.quit();
+}
+}
