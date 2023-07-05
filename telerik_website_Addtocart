@@ -1,0 +1,74 @@
+package Task_30June;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class telerik_website_Addtocart 
+
+{
+     WebDriver Driver = null;
+     
+     @Test
+     public void beforetest() throws InterruptedException
+     {
+    	 System.setProperty("webdriver.chrome.driver", "E:\\chromedriver\\chromedriver.exe");
+   	     Driver=new ChromeDriver();
+   	     Driver.get("https://www.telerik.com/support/demos");
+   	     Driver.manage().window().maximize();
+   	     Thread.sleep(2000);
+     }
+     
+     @Test(dependsOnMethods = {"beforetest"})
+  
+     
+     public void Login() throws InterruptedException
+     {
+    	 Driver.findElement(By.xpath("//*[@id=\"js-tlrk-nav-not-auth-container\"]/a")).click();
+    	 Thread.sleep(1000);
+    	 
+    	 Driver.findElement(By.xpath("//*[@id=\"onetrust-accept-btn-handler\"]")).click();
+    	 Thread.sleep(1000);
+    	 
+    	Driver.findElement(By.id("email")).sendKeys("chaitasi1@yopmail.com");
+     	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.xpath("//*[@id=\"registerForm\"]/div[2]/button")).click();
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys("12345");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.name("first-name")).sendKeys("Chaitasi");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.name("last-name")).sendKeys("Popat");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.name("company")).sendKeys("ABC");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.name("phone")).sendKeys("9875632564");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.xpath("//*[@id=\"country\"]/button/span")).click();
+    	Thread.sleep(1000);
+    	
+    	WebElement element = Driver.findElement(By.className("k-input-inner"));
+    	Select m = new Select(element);
+		m.selectByVisibleText("Algeria");
+    	Thread.sleep(1000);
+    	
+    	Driver.findElement(By.xpath("/html/body/app/ng-component/div/loader/div[1]/div/div/form/div[4]/button")).click();
+    	Thread.sleep(1000);
+    	
+    	//Select data = new Select(element);
+    	//data.selectByVisibleText("Algeria");
+    	//System.out.println(data);
+    
+     }
+      
+}
+
+
